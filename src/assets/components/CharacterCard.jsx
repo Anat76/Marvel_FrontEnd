@@ -11,8 +11,10 @@ const CharacterCard = ({ character }) => {
             src={character.thumbnail.path + "." + character.thumbnail.extension}
             alt={character.name}
           />
-          <h2>{character.name}</h2>
-          <p>{character.description}</p>
+          <div>
+            <h2>{character.name}</h2>
+            <p>{character.description}</p>
+          </div>
         </article>
       </Link>
     )
