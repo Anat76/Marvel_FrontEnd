@@ -10,7 +10,7 @@ const Characters = () => {
     const fetchData = async () => {
       try {
         const responseData = await axios.get(
-          "http://localhost:3000/characters"
+          "https://site--marvel-backend--c876mslb4blp.code.run/characters"
         );
         // console.log(responseData);
         setCharactersData(responseData.data);
@@ -30,6 +30,7 @@ const Characters = () => {
       {charactersData.results.map((character) => {
         return <CharacterCard key={character._id} character={character} />;
       })}
+      {console.log(charactersData.count / 100)};
     </>
   );
 };

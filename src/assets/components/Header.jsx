@@ -9,9 +9,15 @@ const Header = () => {
       </Link>
 
       <div>
-        <h3>Personnages</h3>
-        <h3>Comics</h3>
-        <h3>Favoris</h3>
+        <Link to={"/"}>
+          <h3>Characters</h3>
+        </Link>
+        <Link to={"/comics"}>
+          <h3>Comics</h3>
+        </Link>
+        <Link to={"/favorits"}>
+          <h3>Favoris</h3>
+        </Link>
       </div>
     </header>
   );
