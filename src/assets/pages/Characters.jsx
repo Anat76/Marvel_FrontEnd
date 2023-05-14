@@ -6,12 +6,13 @@ const Characters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [charactersData, setCharactersData] = useState();
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const responseData = await axios.get(
-          `https://site--marvel-backend--c876mslb4blp.code.run/characters?name=${search}`
+          `https://site--marvel-backend--c876mslb4blp.code.run/characters?name=${search}&page=${page}`
         );
         // console.log(responseData);
         setCharactersData(responseData.data);
@@ -21,7 +22,7 @@ const Characters = () => {
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, page]);
 
   return isLoading ? (
     <p>Please Loading . . .</p>
@@ -42,6 +43,33 @@ const Characters = () => {
         {charactersData.results.map((character) => {
           return <CharacterCard key={character._id} character={character} />;
         })}
+      </div>
+      <div className="pagination">
+        {page >= 2 && (
+          <button
+            onClick={() => {
+              setPage(page - 1);
+            }}
+          >
+            Page précedente
+          </button>
+        )}
+        {page >= 2 && (
+          <button
+            onClick={() => {
+              setPage(1);
+            }}
+          >
+            Page Principale
+          </button>
+        )}
+        <button
+          onClick={() => {
+            setPage(page + 1);
+          }}
+        >
+          Page suivante
+        </button>
       </div>
 
       {/* {console.log(Math.ceil(charactersData.count / 100))} */}

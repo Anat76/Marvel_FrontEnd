@@ -6,12 +6,13 @@ const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comicsData, setComicsData] = useState();
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const responseData = await axios.get(
-          `https://site--marvel-backend--c876mslb4blp.code.run/comics?title=${search}`
+          `https://site--marvel-backend--c876mslb4blp.code.run/comics?title=${search}&page=${page}`
         );
         // console.log(responseData.data);
         setComicsData(responseData.data);
@@ -21,7 +22,7 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, page]);
 
   return isLoading ? (
     <p>Please Loading . . .</p>
@@ -41,6 +42,33 @@ const Comics = () => {
         {comicsData.results.map((comics) => {
           return <ComicsCard key={comics._id} comics={comics} />;
         })}
+      </div>
+      <div className="pagination">
+        {page >= 2 && (
+          <button
+            onClick={() => {
+              setPage(page - 1);
+            }}
+          >
+            Page précedente
+          </button>
+        )}
+        {page >= 2 && (
+          <button
+            onClick={() => {
+              setPage(1);
+            }}
+          >
+            Page Principale
+          </button>
+        )}
+        <button
+          onClick={() => {
+            setPage(page + 1);
+          }}
+        >
+          Page suivante
+        </button>
       </div>
     </section>
   );
