@@ -14,9 +14,9 @@ const CharacterById = () => {
     const fetchData = async () => {
       try {
         const responseData = await axios.get(
-          `http://localhost:3000/character/${id}`
+          `https://site--marvel-backend--c876mslb4blp.code.run/character/${id}`
         );
-        console.log(responseData.data);
+        // console.log(responseData.data);
         setcharacterIdData(responseData.data);
         setIsLoading(false);
       } catch (error) {
