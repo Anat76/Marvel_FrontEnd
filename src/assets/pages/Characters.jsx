@@ -27,7 +27,6 @@ const Characters = () => {
     <p>Please Loading . . .</p>
   ) : (
     <section className="character">
-      <h1> je suis sur ma page Home !</h1>
       <div className="search">
         <input
           type="text"

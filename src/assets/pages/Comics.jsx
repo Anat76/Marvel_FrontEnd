@@ -27,15 +27,18 @@ const Comics = () => {
     <p>Please Loading . . .</p>
   ) : (
     <>
-      <h1> je suis sur la page du Comic : {comicsData.name} !</h1>
-      <input
-        type="text"
-        placeholder="Rechercher des Comics ..."
-        value={search}
-        onChange={(event) => {
-          setSearch(event.target.value);
-        }}
-      />
+      {/* <h1> je suis sur la page du Comic : {comicsData.name} !</h1> */}
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Rechercher des Comics ..."
+          value={search}
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+        />
+      </div>
+
       {comicsData.results.map((comics) => {
         return <ComicsCard key={comics._id} comics={comics} />;
       })}

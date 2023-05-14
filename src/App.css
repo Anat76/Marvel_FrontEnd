@@ -5,7 +5,9 @@ body {
   background-color: #070101;
   color: white;
 }
-
+a {
+  text-decoration: none;
+}
 /* ===============HEADER============== */
 header {
   display: flex;
@@ -43,9 +45,15 @@ input {
   align-items: center;
 }
 .search input {
+  color: #070101;
+  font-family: "Chakra Petch";
+  font-weight: bold;
+  font-size: 16px;
   box-sizing: border-box;
   padding: 0 15px;
   height: 30px;
   width: 350px;
   border-radius: 10px;
 }
+
+/* ===============HEADER============== */
