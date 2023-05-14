@@ -26,22 +26,29 @@ const Characters = () => {
   return isLoading ? (
     <p>Please Loading . . .</p>
   ) : (
-    <>
+    <section className="character">
       <h1> je suis sur ma page Home !</h1>
-      <input
-        type="text"
-        placeholder="Rechercher des Characters ..."
-        value={search}
-        onChange={(event) => {
-          setSearch(event.target.value);
-        }}
-      />
-      {charactersData.results.map((character) => {
-        return <CharacterCard key={character._id} character={character} />;
-      })}
-      {console.log(Math.ceil(charactersData.count / 100))}
-      {/* {console.log(charactersData.count / 100)}; */}
-    </>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Rechercher des Characters ..."
+          value={search}
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+        />
+      </div>
+
+      <div>
+        {charactersData.results.map((character) => {
+          return <CharacterCard key={character._id} character={character} />;
+        })}
+      </div>
+
+      {/* {console.log(Math.ceil(charactersData.count / 100))} */}
+      {/* <p>{Math.ceil(charactersData.count / 100)}</p> */}
+      {/* <button onChange={}></button> */}
+    </section>
   );
 };
 
