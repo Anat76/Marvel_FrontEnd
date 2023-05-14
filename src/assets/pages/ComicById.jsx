@@ -29,22 +29,28 @@ const ComicById = () => {
   return isLoading ? (
     <div>Loading . . .</div>
   ) : (
-    <>
-      {comicIdData.thumbnail.path !==
-        "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
-        comicIdData.thumbnail.extension === "jpg" && (
-          <img
-            src={
-              comicIdData.thumbnail.path + "." + comicIdData.thumbnail.extension
-            }
-            alt=""
-          />
-        )}
-      <div>
-        <h1>{comicIdData.title}</h1>
-        <p>{comicIdData.description}</p>
-      </div>
-    </>
+    <section className="characterById">
+      <main>
+        <div>
+          {comicIdData.thumbnail.path !==
+            "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
+            comicIdData.thumbnail.extension === "jpg" && (
+              <img
+                src={
+                  comicIdData.thumbnail.path +
+                  "." +
+                  comicIdData.thumbnail.extension
+                }
+                alt=""
+              />
+            )}
+        </div>
+        <div>
+          <h2>{comicIdData.title}</h2>
+          <p>{comicIdData.description}</p>
+        </div>
+      </main>
+    </section>
   );
 };
 export default ComicById;

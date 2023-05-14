@@ -26,7 +26,7 @@ const Characters = () => {
   return isLoading ? (
     <p>Please Loading . . .</p>
   ) : (
-    <section className="character">
+    <section>
       <div className="search">
         <input
           type="text"
@@ -38,7 +38,7 @@ const Characters = () => {
         />
       </div>
 
-      <div>
+      <div className="charactersContainer">
         {charactersData.results.map((character) => {
           return <CharacterCard key={character._id} character={character} />;
         })}

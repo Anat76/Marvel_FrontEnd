@@ -26,8 +26,7 @@ const Comics = () => {
   return isLoading ? (
     <p>Please Loading . . .</p>
   ) : (
-    <>
-      {/* <h1> je suis sur la page du Comic : {comicsData.name} !</h1> */}
+    <section>
       <div className="search">
         <input
           type="text"
@@ -38,11 +37,12 @@ const Comics = () => {
           }}
         />
       </div>
-
-      {comicsData.results.map((comics) => {
-        return <ComicsCard key={comics._id} comics={comics} />;
-      })}
-    </>
+      <div className="comicsContainer">
+        {comicsData.results.map((comics) => {
+          return <ComicsCard key={comics._id} comics={comics} />;
+        })}
+      </div>
+    </section>
   );
 };
 

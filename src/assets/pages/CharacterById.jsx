@@ -29,29 +29,35 @@ const CharacterById = () => {
   return isLoading ? (
     <div>Loading . . .</div>
   ) : (
-    <>
-      <h1>je suis sur la page de : {characterIdData.name}</h1>
-      <img
-        src={
-          characterIdData.thumbnail.path +
-          "." +
-          characterIdData.thumbnail.extension
-        }
-        alt=""
-      />
-      <h2>{characterIdData.name}</h2>
-      <p>{characterIdData.description}</p>
-      {characterIdData.comics.map((comicId) => {
-        // console.log(comicId);
-        return (
-          <section key={comicId}>
-            <Link to={`/comic/${comicId}`}>
-              <button>{comicId}</button>
-            </Link>
-          </section>
-        );
-      })}
-    </>
+    <section className="characterById">
+      <main>
+        <div>
+          <img
+            src={
+              characterIdData.thumbnail.path +
+              "." +
+              characterIdData.thumbnail.extension
+            }
+            alt=""
+          />
+        </div>
+        <div>
+          <h2>{characterIdData.name}</h2>
+          <p>{characterIdData.description}</p>
+          <h3>Vous pouvez me retrouver sur les Comics suivants :</h3>
+          {characterIdData.comics.map((comicId) => {
+            // console.log(comicId);
+            return (
+              <section key={comicId}>
+                <Link to={`/comic/${comicId}`}>
+                  <button>{comicId}</button>
+                </Link>
+              </section>
+            );
+          })}
+        </div>
+      </main>
+    </section>
   );
 };
 

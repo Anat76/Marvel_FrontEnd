@@ -7,14 +7,21 @@ const CharacterCard = ({ character }) => {
     character.thumbnail.extension === "jpg" && (
       <Link to={`/character/${character._id}`}>
         <article key={character._id}>
-          <img
-            src={character.thumbnail.path + "." + character.thumbnail.extension}
-            alt={character.name}
-          />
-          <div>
-            <h2>{character.name}</h2>
-            <p>{character.description}</p>
-          </div>
+          <section>
+            <div>
+              <img
+                src={
+                  character.thumbnail.path + "." + character.thumbnail.extension
+                }
+                alt={character.name}
+              />
+            </div>
+
+            <div>
+              <h2>{character.name}</h2>
+              <p>{character.description}</p>
+            </div>
+          </section>
         </article>
       </Link>
     )
