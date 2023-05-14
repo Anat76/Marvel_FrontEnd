@@ -15,7 +15,7 @@ const Header = () => {
         <Link to={"/comics"}>
           <p>Comics</p>
         </Link>
-        <Link to={"/favorits"}>
+        <Link to={"/favoris"}>
           <p>Favoris</p>
         </Link>
       </div>

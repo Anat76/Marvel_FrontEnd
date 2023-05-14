@@ -3,7 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const ComicById = () => {
+const ComicById = ({ setCookie }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [comicIdData, setComicIdData] = useState();
 
@@ -45,6 +45,13 @@ const ComicById = () => {
             )}
         </div>
         <div>
+          <button
+            onChange={() => {
+              setCookie();
+            }}
+          >
+            ⭐️ Ajouter aux Favoris
+          </button>
           <h2>{comicIdData.title}</h2>
           <p>{comicIdData.description}</p>
         </div>

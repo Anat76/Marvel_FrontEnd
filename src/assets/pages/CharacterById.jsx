@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
-const CharacterById = () => {
+const CharacterById = ({ setCookie }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [characterIdData, setcharacterIdData] = useState();
 
@@ -41,6 +42,17 @@ const CharacterById = () => {
           />
         </div>
         <div>
+          <button
+            onClick={() => {
+              setCookie(
+                Cookies.set("FavoritsCharacter", characterIdData._id, {
+                  expires: 7,
+                })
+              );
+            }}
+          >
+            ⭐️ Ajouter aux Favoris
+          </button>
           <h2>{characterIdData.name}</h2>
           <p>{characterIdData.description}</p>
           <h3>Vous pouvez me retrouver sur les Comics suivants :</h3>
