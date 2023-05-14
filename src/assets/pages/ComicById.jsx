@@ -8,7 +8,6 @@ const ComicById = () => {
   const [comicIdData, setComicIdData] = useState();
 
   const { id } = useParams();
-  //   console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {

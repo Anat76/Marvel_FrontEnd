@@ -62,13 +62,17 @@ const Comics = () => {
             Page Principale
           </button>
         )}
-        <button
-          onClick={() => {
-            setPage(page + 1);
-          }}
-        >
-          Page suivante
-        </button>
+        {page === Math.ceil(comicsData.count / 100) ? (
+          <></>
+        ) : (
+          <button
+            onClick={() => {
+              setPage(page + 1);
+            }}
+          >
+            Page suivante
+          </button>
+        )}
       </div>
     </section>
   );

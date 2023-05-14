@@ -63,18 +63,20 @@ const Characters = () => {
             Page Principale
           </button>
         )}
-        <button
-          onClick={() => {
-            setPage(page + 1);
-          }}
-        >
-          Page suivante
-        </button>
+        {page === Math.ceil(charactersData.count / 100) ? (
+          <></>
+        ) : (
+          <button
+            onClick={() => {
+              setPage(page + 1);
+            }}
+          >
+            Page suivante
+          </button>
+        )}
       </div>
 
       {/* {console.log(Math.ceil(charactersData.count / 100))} */}
-      {/* <p>{Math.ceil(charactersData.count / 100)}</p> */}
-      {/* <button onChange={}></button> */}
     </section>
   );
 };

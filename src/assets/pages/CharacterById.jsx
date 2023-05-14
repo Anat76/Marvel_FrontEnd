@@ -8,7 +8,6 @@ const CharacterById = () => {
   const [characterIdData, setcharacterIdData] = useState();
 
   const { id } = useParams();
-  //   console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,6 +51,7 @@ const CharacterById = () => {
                 <Link to={`/comic/${comicId}`}>
                   <button>{comicId}</button>
                 </Link>
+                {/* je n'ai pas reussi et j'ai butter longtemps dessus a afficher le nom des comics à la place des id sur les buttons */}
               </section>
             );
           })}
