@@ -24,7 +24,7 @@ const CharacterById = ({ setCookie }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return isLoading ? (
     <div>Loading . . .</div>
