@@ -16,7 +16,7 @@ import { useState } from "react";
 
 const App = () => {
   // COOKIE
-  const [cookie, setCookie] = useState({});
+  const [cookie, setCookie] = useState("");
   return (
     <>
       <Router>
@@ -32,7 +32,7 @@ const App = () => {
             path="/comic/:id"
             element={<ComicById setCookie={setCookie} />}
           />
-          <Route path="/favoris" element={<Favoris />} />
+          <Route path="/favoris" element={<Favoris cookie={cookie} />} />
         </Routes>
       </Router>
     </>

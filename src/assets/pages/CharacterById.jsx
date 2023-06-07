@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import ComicCharacterId from "../components/ComicCharacterId";
 
 const CharacterById = ({ setCookie }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,15 +17,14 @@ const CharacterById = ({ setCookie }) => {
         const responseData = await axios.get(
           `https://site--marvel-backend--c876mslb4blp.code.run/character/${id}`
         );
-        // console.log(responseData.data);
         setcharacterIdData(responseData.data);
         setIsLoading(false);
       } catch (error) {
-        console.log(error.message);
+        console.log(error.response);
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return isLoading ? (
     <div>Loading . . .</div>
@@ -58,14 +58,7 @@ const CharacterById = ({ setCookie }) => {
           <h3>Vous pouvez me retrouver sur les Comics suivants :</h3>
           {characterIdData.comics.map((comicId) => {
             // console.log(comicId);
-            return (
-              <section key={comicId}>
-                <Link to={`/comic/${comicId}`}>
-                  <button>{comicId}</button>
-                </Link>
-                {/* je n'ai pas reussi et j'ai butter longtemps dessus a afficher le nom des comics à la place des id sur les buttons */}
-              </section>
-            );
+            return <ComicCharacterId key={comicId} comicId={comicId} />;
           })}
         </div>
       </main>
